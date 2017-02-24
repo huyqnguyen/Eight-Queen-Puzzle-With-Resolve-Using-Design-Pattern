@@ -2,7 +2,7 @@
 
 namespace EightQueenPuzzleWithDesignPattern.Interator
 {
-    class Collection : IAbstractCollection
+    public class Collection : IAbstractCollection
     {
         private ArrayList _items = new ArrayList();
 

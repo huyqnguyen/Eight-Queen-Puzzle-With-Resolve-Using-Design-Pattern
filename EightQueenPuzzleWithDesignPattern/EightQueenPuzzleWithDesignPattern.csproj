@@ -53,6 +53,8 @@
     <Compile Include="Interator\IAbstractCollection.cs" />
     <Compile Include="Interator\IAbstractIterator.cs" />
     <Compile Include="Interator\Iterator.cs" />
+    <Compile Include="Memento\Memento.cs" />
+    <Compile Include="Memento\ProspectMemory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

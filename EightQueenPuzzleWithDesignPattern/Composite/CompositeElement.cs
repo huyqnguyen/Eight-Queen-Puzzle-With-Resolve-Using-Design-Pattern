@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EightQueenPuzzleWithDesignPattern.Composite
 {
-    class CompositeElement : ChessBoard
+    public class CompositeElement : ChessBoard
     {
         private List<ChessBoard> elements =  new List<ChessBoard>();
 
-        public CompositeElement(int x, int y) : base(x, y)
+        public CompositeElement(int x, int y, bool state) : base(x, y, state)
         {
         }
 
@@ -33,6 +30,18 @@ namespace EightQueenPuzzleWithDesignPattern.Composite
         public override void Remove(ChessBoard d)
         {
             elements.Remove(d);
+        }
+
+        public override void RestoreMemento(Memento.Memento memento)
+        {
+            this.X = memento.X;
+            this.Y = memento.Y;
+            this.State = memento.State;
+        }
+
+        public override Memento.Memento SaveMemento()
+        {
+            return new Memento.Memento(_x, _y, _state);
         }
     }
 }

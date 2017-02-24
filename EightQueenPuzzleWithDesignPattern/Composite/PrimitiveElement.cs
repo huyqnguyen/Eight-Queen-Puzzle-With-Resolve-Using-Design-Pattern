@@ -1,10 +1,11 @@
 ﻿using System;
+using EightQueenPuzzleWithDesignPattern.Memento;
 
 namespace EightQueenPuzzleWithDesignPattern.Composite
 {
-    class PrimitiveElement : ChessBoard
+    public class PrimitiveElement : ChessBoard
     {
-        public PrimitiveElement(int x, int y) : base(x, y)
+        public PrimitiveElement(int x, int y, bool state) : base(x, y,state)
         {
         }
 
@@ -24,6 +25,16 @@ namespace EightQueenPuzzleWithDesignPattern.Composite
         {
             Console.WriteLine(
               new String('-', indent) + " " + X + " " + Y);
+        }
+
+        public override Memento.Memento SaveMemento()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void RestoreMemento(Memento.Memento memento)
+        {
+            throw new NotImplementedException();
         }
     }
 }
