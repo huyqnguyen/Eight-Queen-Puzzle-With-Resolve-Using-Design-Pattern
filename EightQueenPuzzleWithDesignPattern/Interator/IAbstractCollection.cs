@@ -1,7 +1,9 @@
-﻿namespace EightQueenPuzzleWithDesignPattern.Interator
+﻿using System.Collections.Generic;
+
+namespace EightQueenPuzzleWithDesignPattern.Interator
 {
     interface IAbstractCollection
     {
-        Iterator CreateIterator();
+        List<Iterator> CreateIterator();
     }
 }

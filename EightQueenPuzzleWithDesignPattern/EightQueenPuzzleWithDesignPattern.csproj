@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Composite\ChessBoard.cs" />
-    <Compile Include="Composite\CompositeElement.cs" />
+    <Compile Include="Composite\Position.cs" />
     <Compile Include="Composite\PrimitiveElement.cs" />
     <Compile Include="Interator\Collection.cs" />
     <Compile Include="Interator\IAbstractCollection.cs" />

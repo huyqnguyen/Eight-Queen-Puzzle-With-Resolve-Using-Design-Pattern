@@ -1,53 +1,30 @@
-﻿using EightQueenPuzzleWithDesignPattern.Composite;
-
-namespace EightQueenPuzzleWithDesignPattern.Interator
+﻿namespace EightQueenPuzzleWithDesignPattern.Interator
 {
     public class Iterator : IAbstractIterator
     {
-        private Collection _collection;
-        private int _current = 0;
-        private int _step = 1;
+        private ChessBoard _current;
 
-        // Constructor
-        public Iterator(Collection collection)
+        public Iterator(ChessBoard current)
         {
-            this._collection = collection;
+            this._current = current;
         }
 
-        // Gets first item
-        public CompositeElement First()
+        public ChessBoard Next()
         {
-            _current = 0;
-            return _collection[_current] as CompositeElement;
-        }
-
-        // Gets next item
-        public CompositeElement Next()
-        {
-            _current += _step;
             if (!IsDone)
-                return _collection[_current] as CompositeElement;
+                return _current.Parent as ChessBoard;
             else
                 return null;
         }
 
-        // Gets or sets stepsize
-        public int Step
+        public ChessBoard Current
         {
-            get { return _step; }
-            set { _step = value; }
+            get { return _current; }
         }
 
-        // Gets current iterator item
-        public CompositeElement CurrentItem
-        {
-            get { return _collection[_current] as CompositeElement; }
-        }
-
-        // Gets whether iteration is complete
         public bool IsDone
         {
-            get { return _current >= _collection.Count; }
+            get { return _current.Row > 0; }
         }
     }
 }

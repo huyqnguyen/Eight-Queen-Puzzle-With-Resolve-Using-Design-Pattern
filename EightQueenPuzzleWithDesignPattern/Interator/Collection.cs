@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace EightQueenPuzzleWithDesignPattern.Interator
 {
@@ -6,9 +7,14 @@ namespace EightQueenPuzzleWithDesignPattern.Interator
     {
         private ArrayList _items = new ArrayList();
 
-        public Iterator CreateIterator()
+        public List<Iterator> CreateIterator()
         {
-            return new Iterator(this);
+            List<Iterator> list = new List<Iterator>();
+            foreach(ChessBoard item in _items)
+            {
+                list.Add(new Iterator(item));
+            }
+            return list;
         }
 
         // Gets item count

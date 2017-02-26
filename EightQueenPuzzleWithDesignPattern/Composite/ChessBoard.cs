@@ -2,40 +2,40 @@
 {
     public abstract class ChessBoard
     {
-        protected int _x;
-        protected int _y;
-        protected bool _state;
+        protected int _line;
+        protected int _row;
+        protected ChessBoard _parent;
         // Constructor
-        public ChessBoard(int x, int y, bool state)
+        public ChessBoard(int x, int y, ChessBoard parent)
         {
-            this._x = x;
-            this._y = y;
-            this._state = state;
+            this._line = x;
+            this._row = y;
+            this._parent = parent;
         }
 
 
-        public int X
+        public int Line
         {
-            get { return _x; }
-            set { _x = value; }
+            get { return _line; }
+            set { _line = value; }
         }
 
-        public int Y
+        public int Row
         {
-            get { return _y; }
-            set { _y = value; }
+            get { return _row; }
+            set { _row = value; }
         }
 
-        public bool State
+        public ChessBoard Parent
         {
-            get { return _state; }
-            set { _state = value; }
+            get { return _parent; }
+            set { _parent = value; }
         }
 
         public abstract void Add(ChessBoard d);
         public abstract void Remove(ChessBoard d);
-        public abstract void Display(int indent);
         public abstract Memento.Memento SaveMemento();
         public abstract void RestoreMemento(Memento.Memento memento);
+        public abstract ChessBoard GetNextMove();
     }
 }
